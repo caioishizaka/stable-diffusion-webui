@@ -10,10 +10,11 @@ COPY . .
 
 ADD https://huggingface.co/XpucT/Deliberate/resolve/main/Deliberate-inpainting.safetensors models/Stable-diffusion/Deliberate.safetensors
 
-# RUN pip3 install --upgrade pip
-# RUN pip install --pre xformers
-# RUN pip install --pre triton
-# RUN pip install numexpr
+RUN pip3 install --upgrade pip
+RUN pip install torch==1.13.1+cu117 torchvision==0.14.1+cu117 --extra-index-url https://download.pytorch.org/whl/cu117
+RUN pip install --pre xformers
+RUN pip install --pre triton
+RUN pip install numexpr
 
 EXPOSE 7860
 
