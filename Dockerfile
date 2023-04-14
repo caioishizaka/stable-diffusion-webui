@@ -3,7 +3,7 @@ FROM nvidia/cuda:12.1.0-base-ubuntu22.04 as base
 
 WORKDIR /app
 
-RUN sed -i "/#\$nrconf{restart} = 'i';/s/.*/\$nrconf{restart} = 'a';/" /etc/needrestart/needrestart.conf
+# RUN sed -i "/#\$nrconf{restart} = 'i';/s/.*/\$nrconf{restart} = 'a';/" /etc/needrestart/needrestart.conf
 RUN apt-get update -y && apt-get upgrade -y && apt-get install -y python3-pip && rm -rf /var/lib/apt/lists/*
 
 COPY . .
