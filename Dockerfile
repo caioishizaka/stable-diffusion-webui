@@ -4,7 +4,7 @@ FROM ubuntu:22.04 as base
 WORKDIR /app
 
 # RUN sed -i "/#\$nrconf{restart} = 'i';/s/.*/\$nrconf{restart} = 'a';/" /etc/needrestart/needrestart.conf
-ADD https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/sbsa/cuda-keyring_1.0-1_all.deb
+ADD https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/sbsa/cuda-keyring_1.0-1_all.deb cuda-keyring_1.0-1_all.deb
 RUN dpkg -i cuda-keyring_1.0-1_all.deb
 RUN apt-get update -y && apt-get upgrade -y && apt-get install -y python3-pip && rm -rf /var/lib/apt/lists/*
 RUN apt-get -y install cuda
